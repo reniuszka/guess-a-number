@@ -1,19 +1,14 @@
 // REFACTORING _ dry code
 'use strict';
 
-// to change the text
-// document.querySelector('.message').textContent = 'Hello Lucky you!';
-//  to see the value of the input after clicking check
 
-// defining the secret number to compare it to the value from the input, random number multiply by 20 +1 to make sure 20 is incuded and get rid of any fractional digits, want to show only  integer(whole number)
-// using let if we want to reasign the value later
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 // initial score
 let score = 20;
 
 let highscore = 0;
-// creating the func and our parameter is message, setting the class mesage from html and and its gonna be equal to thee msg that is passed into the function
+
 const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
@@ -23,7 +18,7 @@ document.querySelector('.check').addEventListener('click', () => {
   //   string so need to convert to it Number
   console.log(guess, typeof guess);
 
-  //  assuming that there is no input --> if there is no guess (!guess). Remember that if we dont put anything inside guess = 0 so its falsy, so its converted to false, but we want sth to happen whenever guess is false so here we actually want a true value as !0 = true, so we use negation (NOT operator to convert it to true) operator to invert false to true
+  //  assuming that there is no input --> if there is no guess (!guess).  guess = 0 so its falsy, so its converted to false, !0 = true, 
   // cover all scenarios and if the guess is wrong descrease it by 1
 
   //   no input
@@ -51,7 +46,7 @@ document.querySelector('.check').addEventListener('click', () => {
       document.querySelector('.message').textContent = 'you lost';
       document.querySelector('.score').textContent = 0;
     }
-    //     when the guess is wrong, we change the msg here thanks to uternity operator
+ 
   } else if (guess !== secretNumber) {
     if (score > 1) {
       //       document.querySelector('.message').textContent =
@@ -72,7 +67,7 @@ document.querySelector('.check').addEventListener('click', () => {
 });
 
 // refreshing the game, reseting all after clicking AGAIN
-// an anonymous handle function inside
+
 
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
